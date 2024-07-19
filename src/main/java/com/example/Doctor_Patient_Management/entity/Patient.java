@@ -2,11 +2,10 @@ package com.example.Doctor_Patient_Management.entity;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Data
+
 @Document(collection = "patients")
 public class Patient {
     @Id
