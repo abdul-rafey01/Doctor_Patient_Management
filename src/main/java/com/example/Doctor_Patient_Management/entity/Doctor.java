@@ -1,6 +1,5 @@
 package com.example.Doctor_Patient_Management.entity;
 
-import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,7 +7,7 @@ import jakarta.validation.constraints.NotEmpty;
 
 import java.util.List;
 
-@Data
+
 @Document(collection = "doctors")
 public class Doctor {
     @Id
