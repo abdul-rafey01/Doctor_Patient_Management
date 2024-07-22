@@ -12,4 +12,13 @@ public class GlobalExceptionHandler {
     public String handleException(Exception e) {
         return e.getMessage();
     }
+
+    public static class InvalidFieldException extends RuntimeException {
+        public InvalidFieldException(final String message){
+            super(message);
+        }
+        public InvalidFieldException(final String message, Exception e){
+            super(message + " , Error : " + e.getMessage());
+        }
+    }
 }

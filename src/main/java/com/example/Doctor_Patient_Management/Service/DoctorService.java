@@ -1,5 +1,6 @@
 package com.example.Doctor_Patient_Management.Service;
 
+import com.example.Doctor_Patient_Management.GlobalExceptionHandler;
 import com.example.Doctor_Patient_Management.entity.Doctor;
 import com.example.Doctor_Patient_Management.Repository.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class DoctorService {
@@ -15,6 +17,10 @@ public class DoctorService {
     private DoctorRepository doctorRepository;
 
     public Doctor addDoctor(Doctor doctor) {
+        doctor.setId(UUID.randomUUID().toString());
+        if (doctor.getName().isEmpty()){
+            throw new GlobalExceptionHandler.InvalidFieldException("Doctor Name is not provided : ");
+        }
         return doctorRepository.save(doctor);
     }
 
