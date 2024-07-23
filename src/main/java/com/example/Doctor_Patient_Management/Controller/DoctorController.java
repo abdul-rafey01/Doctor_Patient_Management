@@ -24,7 +24,8 @@ public class DoctorController {
     @PostMapping
     public Doctor createDoctor(@RequestBody Doctor doctor) {
 
-        Boolean result=doctorService.addDoctor(doctor);
+//        Boolean result=doctorService.addDoctor(doctor);
+        return doctorService.addDoctor(doctor);
 
     }
 

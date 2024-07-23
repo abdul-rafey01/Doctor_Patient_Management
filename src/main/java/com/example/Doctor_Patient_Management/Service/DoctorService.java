@@ -21,6 +21,9 @@ public class DoctorService {
         if (doctor.getName().isEmpty()){
             throw new GlobalExceptionHandler.InvalidFieldException("Doctor Name is not provided : ");
         }
+        if (doctor.getSpecialization().isEmpty()){
+            throw new GlobalExceptionHandler.InvalidFieldException("Doctor Specialization is not provided : ");
+        }
         return doctorRepository.save(doctor);
     }
 
@@ -33,7 +36,13 @@ public class DoctorService {
     }
 
     public Doctor updateDoctor(String id, Doctor doctor) {
-        doctor.setId(id);
+        doctor.setId(UUID.randomUUID().toString());
+        if (doctor.getName().isEmpty()){
+            throw new GlobalExceptionHandler.InvalidFieldException("Doctor Name is not provided : ");
+        }
+        if (doctor.getSpecialization().isEmpty()){
+            throw new GlobalExceptionHandler.InvalidFieldException("Doctor Specialization is not provided : ");
+        }
         return doctorRepository.save(doctor);
     }
 
